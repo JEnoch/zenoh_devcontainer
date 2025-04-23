@@ -1,0 +1,31 @@
+{
+    "name": "Zenoh Development Container",
+    "privileged": true,
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    // By default the Zenoh router uses port 7447.
+    // But let's forward a few more in case one want to play with several routers.
+     "forwardPorts": [7445, 7446, 7447, 7448, 7449],
+     "customizations": {
+        "vscode": {
+            "extensions":[
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-themes",
+                "twxs.cmake",
+                "donjayamanne.python-extension-pack",
+                "eamodio.gitlens",
+                "ms-iot.vscode-ros"
+            ]
+        }
+    },
+    "containerEnv": {
+        "CONTAINER_WORKSPACE": "${containerWorkspaceFolder}",
+    },
+    "runArgs": [
+        "--cpus", "2",
+        "--memory", "4g",
+        "--pid=host",
+        "--ipc=host",
+    ]
+}
